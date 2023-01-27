@@ -2,7 +2,10 @@ package task01.src;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main {
 
@@ -13,12 +16,11 @@ public class Main {
         //store hashmap into arraylist class and sort
         //print arraylist class
 
-//        String fileName = args[0];
-//
-        FileReader fr = new FileReader();
+        String fileName = args[0];
+        FileReader fr = new FileReader(fileName);
 
         fr.readFile();
-//        fr.showFile();
+//      fr.showFile();
 
         HashMap<String, Integer> frequency = new HashMap<>();
 
@@ -34,13 +36,31 @@ public class Main {
             }
         }
 
+
+        List<Word> sortedFrequency = new ArrayList<>();
+
         //print out hashmap
         frequency.entrySet().forEach(entry -> {
             System.out.println(entry.getKey() + " " + entry.getValue());
+            sortedFrequency.add(new Word(entry.getKey(), entry.getValue()));
         });
 
-        //sort hashmap by value in ascending order
-        
+        //store hashmap into arraylist and sort hashmap by value in ascending order.
+
+        Collections.sort(sortedFrequency, Collections.reverseOrder());
+
+        System.out.println("Printing the top 10 words in " + fr.fileName);
+        try {
+            for (int i = 0; i < 10; i++){
+                System.out.println( i+1 + ". " +sortedFrequency.get(i).word + " - " + sortedFrequency.get(i).frequency);
+            }
+        } catch (Exception e){
+            System.out.println("End of file");
+        }
+
+
+
+
 
 
 

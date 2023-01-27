@@ -12,7 +12,7 @@ public class FileReader {
 
     public String dirPath = "./data2";
 
-    public String fileName = "cat_in_the_hat.txt";
+    public String fileName = "";
 
     public ArrayList<String> remainingTokens;
 
