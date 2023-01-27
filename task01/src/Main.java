@@ -17,6 +17,7 @@ public class Main {
         //print arraylist class
 
         String fileName = args[0];
+//        FileReader fr = new FileReader();
         FileReader fr = new FileReader(fileName);
 
         fr.readFile();
@@ -39,9 +40,9 @@ public class Main {
 
         List<Word> sortedFrequency = new ArrayList<>();
 
-        //print out hashmap
+        //add hashmap to new list
         frequency.entrySet().forEach(entry -> {
-            System.out.println(entry.getKey() + " " + entry.getValue());
+//            System.out.println(entry.getKey() + " " + entry.getValue());
             sortedFrequency.add(new Word(entry.getKey(), entry.getValue()));
         });
 

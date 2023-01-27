@@ -28,6 +28,8 @@ public class FileReader {
 
         File file = new File(dirPath + File.separator + fileName);
 
+        checkFileExist(file);
+
 
         java.io.FileReader fr = new java.io.FileReader(file);
         BufferedReader br = new BufferedReader(fr);
@@ -58,6 +60,14 @@ public class FileReader {
             for (String iterator:remainingTokens){
                 System.out.println(iterator);
             }
+        }
+    }
+
+    public void checkFileExist(File file){
+        if (!file.exists()) // if directory folder does not exist
+        {
+            System.err.println("File " + fileName + " does not exist");
+            System.exit(0);
         }
     }
 
