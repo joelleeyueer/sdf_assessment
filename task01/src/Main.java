@@ -23,6 +23,9 @@ public class Main {
         fr.readFile();
 //      fr.showFile();
 
+        Double tokenSize = Double.valueOf(fr.remainingTokens.size());
+        System.out.println("Total words: " + tokenSize);
+
         HashMap<String, Integer> frequency = new HashMap<>();
 
         while (!fr.remainingTokens.isEmpty()){
@@ -53,7 +56,8 @@ public class Main {
         System.out.println("Printing the top 10 words in " + fr.fileName);
         try {
             for (int i = 0; i < 10; i++){
-                System.out.println( i+1 + ". " +sortedFrequency.get(i).word + " - " + sortedFrequency.get(i).frequency);
+
+                System.out.println( i+1 + ". " +sortedFrequency.get(i).word + " - " + sortedFrequency.get(i).frequency + " words (term frequency: " + Double.valueOf(sortedFrequency.get(i).frequency)/tokenSize + ")");
             }
         } catch (Exception e){
             System.out.println("End of file");
